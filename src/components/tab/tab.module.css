@@ -1,0 +1,9 @@
+.tab {
+  width: 100%;
+  min-height: 50px;
+  background-color: rgb(214, 222, 214);
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  box-sizing: border-box;
+  overflow: hidden;
+}
