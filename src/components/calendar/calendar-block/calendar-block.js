@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../calendar-page.module.css";
 
 export default function CalendarBlock({ date, setDate, currentDay, select }) {
+
+  const darkTheme = JSON.parse(localStorage.getItem("dark-theme") || "true");
   const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const months = [
     "January",
@@ -37,11 +39,15 @@ export default function CalendarBlock({ date, setDate, currentDay, select }) {
   const numRows = Math.ceil(days.length / numCols);
 
   const handleDateSelection = (e) => {
-    select(new Date(date.getFullYear(), date.getMonth(), e.target.innerText))
-  }
+    select(new Date(date.getFullYear(), date.getMonth(), e.target.innerText));
+  };
 
   return (
-    <div className={styles.calendarDiv}>
+    <div
+      className={
+        styles.calendarDiv + " " + (darkTheme ? styles.darkCalendarDiv : "")
+      }
+    >
       <h2>
         {month} {year}
       </h2>
@@ -64,7 +70,9 @@ export default function CalendarBlock({ date, setDate, currentDay, select }) {
                 return (
                   <td
                     key={j}
-                    className={isCurrentDay ? styles.current : ""}
+                    className={`${isCurrentDay ? styles.current : ""} ${
+                      darkTheme && isCurrentDay ? styles.darkCurrent : ""
+                    } ${darkTheme ? styles.darkTd : styles.lightTd}`}
                     onClick={handleDateSelection}
                   >
                     {day}

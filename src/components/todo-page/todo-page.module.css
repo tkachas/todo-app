@@ -1,46 +1,90 @@
+
 .todoPageDiv {
-    width: 100%;
-    height: 85%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  height: 85%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .todoPageTaskList {
-  position: relative;
-  top: 20px;
-  height: 60%;
-  width: 90%;
-  /* width: 90%; */
-  overflow-y: auto;
-  overflow-x: hidden;
-  /* margin-bottom: 10px; */
-  padding: 10px;
-  border-radius: 10px;
-  /* border: 1px solid red; */
-  box-shadow: inset 0px 0px 5px rgb(0,0,0,0.4);
+position: relative;
+top: 20px;
+height: 65%;
+width: 90%;
+overflow-y: auto;
+overflow-x: hidden;
+padding: 10px;
+border-radius: 10px;
+-webkit-box-shadow: inset 0px 5px 8px 3px rgb(0,0,0,0.4);
+        box-shadow: inset 0px 5px 8px 3px rgb(0,0,0,0.4);
 }
+
+
+
 .todoPageTaskList::-webkit-scrollbar {
-  width: 10px;
+width: 10px;
 }
 
 .todoPageTaskList::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
-  border-radius: 5px;
+background-color: #f1f1f1;
+border-radius: 5px;
 }
 
 .todoPageTaskList::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 5px;
+background-color: rgb(157, 172, 157);
+border-radius: 5px;
 }
 
 .todoPageTaskList::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
+background-color: rgb(108, 121, 108);
+}
+
+.darkTodoPageTaskList {
+background-color: #474E68;
+/* box-shadow: inset 0px 5px 5px 3px #323345; */
+}
+
+.darkTodoPageTaskList::-webkit-scrollbar {
+width: 10px;
+}
+
+.darkTodoPageTaskList::-webkit-scrollbar-track {
+background-color: rgba(0,0,0,0);
+border-radius: 5px;
+}
+
+.darkTodoPageTaskList::-webkit-scrollbar-thumb {
+background-color: #343549;
+border-radius: 10px;
+}
+
+.darkTodoPageTaskList::-webkit-scrollbar-thumb:hover {
+background-color: rgb(108, 121, 108);
 }
 
 .addTaskDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border: 1px solid red; */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  width: 80%;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.darkAddTaskDiv {
+background-color: #474E68;
 }

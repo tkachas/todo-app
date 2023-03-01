@@ -1,33 +1,66 @@
+
 .todoTaskContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  width: 90%;
+  width: 100%;
   height: 90%;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background-color: #ffffff;
-  /* border: 1px solid red; */
-  /* border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 16px; */
+  border-radius: inherit;
+}
+
+.darkTaskContainer {
+  background-color: #404258;
 }
 
 .todoTaskForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /* -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; */
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: inherit;
+  width: 100%;
+  /* border: 1px solid red; */
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 5px;
+  border-radius: inherit;
 }
 
 .todoTaskDate {
   font-size: 16px;
   font-weight: 500;
   color: #6b7280;
-  margin-right: 8px;
+  /* margin-right: 8px; */
 }
 
 .todoTaskTitle {
   font-size: 16px;
   font-weight: bold;
   color:rgba(0, 0, 0, 0.546);
+}
+
+.darkTodoTaskTitle {
+  color: rgb(202, 202, 202);
 }
 
 .todoTaskDeleteButton {
@@ -41,8 +74,10 @@
   position: relative;
   top: 5px;
   padding: 8px 16px;
-  width: 200px;
-  align-self: center;
+  width: 50%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   background-color: rgb(158, 165, 122);
   color: #fff;
   font-weight: bold;
@@ -50,36 +85,74 @@
   border-radius: 5px;
   font-size: 14px;
   cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.279);
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.279);
+          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.279);
 }
 
 .todoTaskForm button[type="submit"]:hover {
   background-color: rgb(121, 126, 96);
 }
+
 .todoTaskForm button[type="submit"]:active {
+  -webkit-transition: 0s;
+  -o-transition: 0s;
   transition: 0s;
   /* background-color: rgb(158, 165, 122); */
   font-size: 13px;
 }
 
+.darkTodoTaskForm button[type="submit"] {
+  background-color: #6B728E;
+}
+
+.darkTodoTaskForm button[type="submit"]:hover {
+  background-color: #50577A;
+}
+
 .todoTaskLabel {
+  width: 100%;
   font-size: 12px;
   font-weight: bold;
   color: inherit;
   text-decoration: none;
+  display: -ms-grid;
   display: grid;
   /* flex-direction: column;
   align-items: center; */
+  -ms-grid-columns: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  /* padding: 5px 10px; */
   border-radius: 5px;
-  background-color: #fff;
-  /* box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1); */
+  background-color: rgba(255, 255, 255, 0);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  /* margin-bottom: 5px; */
+  margin-left: 5px;
   /* border: 1px solid red; */
+}
+
+.todoTaskLabel > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+
+.todoTaskLabel > *:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+}
+
+.todoTaskLabel > *:nth-child(3) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+}
+
+.todoTaskLabel > *:nth-child(4) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
 }
 
 .todoTaskLabel > * {
@@ -87,7 +160,7 @@
 }
 
 .todoTaskLabel input, select{
-  width: 150px;
+  width: 80%;
   margin-right: 1rem;
   border: none;
   border-radius: 0.25rem;
@@ -97,14 +170,22 @@
   font-family: inherit;
   font-size: inherit;
   font-weight: bold;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  -webkit-transition: -webkit-box-shadow 0.2s ease-in-out;
+  transition: -webkit-box-shadow 0.2s ease-in-out;
+  -o-transition: box-shadow 0.2s ease-in-out;
   transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
   outline-color:#0077ff;
+
 }
 select {
-  width: 165px;
+  -webkit-appearance: none;
+  width: 87.5%;
 }
 .todoTaskLabel input:focus {
   outline: none;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 0 2px #0077ff;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 0 2px #0077ff;
+          box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 0 2px #0077ff;
 }

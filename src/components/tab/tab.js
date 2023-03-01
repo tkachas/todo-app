@@ -3,6 +3,8 @@ import TabElement from "./tab-element/tab-element";
 import style from "./tab.module.css";
 
 export default function Tab(props) {
+  const darkTheme = JSON.parse(localStorage.getItem("dark-theme") || "true");
+
   let count = "";
   for (let i = 0; i < props.titles.length; i++) {
     count += "1fr";
@@ -17,7 +19,7 @@ export default function Tab(props) {
 
   return (
     <>
-      <div className={style.tab} style={grid}>
+      <div className={style.tab + " " + (darkTheme ? style.darkTab : "")} style={grid}>
         {/* <TabElement active={props.currentTab === "To do"} value={"To do"} switch={props.setCurrentTab}/>
         <TabElement active={props.currentTab === "Second"} value={"Second"} switch={props.setCurrentTab}/> */}
         {props.titles.map((el, key) => {
@@ -27,6 +29,7 @@ export default function Tab(props) {
               value={el}
               switch={props.setCurrentTab}
               key={key}
+              darkTheme={darkTheme}
             />
           );
         })}

@@ -5,6 +5,7 @@ import CalendarBlock from "./calendar-block/calendar-block";
 import TodoForm from "../todo-selected/todo-form";
 
 function CalendarPage({ addTask }) {
+  const darkTheme = JSON.parse(localStorage.getItem("dark-theme") || "true");
   const [date, setDate] = useState(new Date());
   const [currentDay, setCurrentDay] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
@@ -26,14 +27,14 @@ function CalendarPage({ addTask }) {
         select={setSelectedDate}
       />
       <section className={styles.navButtons}>
-        <CalendarNav onPrevClick={handlePrevClick} />
-        <CalendarNav onNextClick={handleNextClick} />
+        <CalendarNav onPrevClick={handlePrevClick} dark={darkTheme} />
+        <CalendarNav onNextClick={handleNextClick} dark={darkTheme} />
       </section>
-      <section className={!selectedDate ? styles.notPickedDateSettings : `${styles.pickedDateSettings}`}>
+      <section className={(!selectedDate ? styles.notPickedDateSettings : styles.pickedDateSettings) + " " + (darkTheme ? styles.darkNotPickedDateSettings : "")}>
         {selectedDate ? (
           <TodoForm selectedDate={selectedDate} addTask={addTask}/>
         ) : (
-          <h1 className={styles.notPickedDateText}>
+          <h1 className={styles.notPickedDateText + " " + (darkTheme ? styles.darkNotPickedDateText : "")}>
             PICK A DATE TO ADD A TASK
           </h1>
         )}

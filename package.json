@@ -1,20 +1,27 @@
 {
-  "name": "to-do-widget",
+  "name": "To-Do",
   "version": "0.1.0",
+  "homepage": "https://tkachas.github.io/todo-app/",
+  "author": "Tkachenko",
+  "description": "Simple To Do App",
   "main": "main.js",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "d3-ease": "^3.0.1",
     "electron-is-dev": "^2.0.0",
     "electron-squirrel-startup": "^1.0.0",
     "react": "^18.2.0",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.2.0",
+    "react-move": "^6.5.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "react-start": "react-scripts start",
     "start": "electron-forge start",
     "electron-dev": "electron .",
     "electron-build": "npm run build && electron .",
@@ -22,7 +29,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "deploy": "gh-pages -b develop -d build",
+    "build-electron": "electron-builder"
   },
   "eslintConfig": {
     "extends": [
