@@ -27,7 +27,6 @@ function TodoForm({ selectedDate, addTask }) {
   });
 
   const generateId = () => {
-    console.log(JSON.parse(localStorage.getItem("tasks") || "[]"));
     const idArr = JSON.parse(localStorage.getItem("tasks") || "[]").map(
       (obj) => obj.id
     );
@@ -93,22 +92,41 @@ function TodoForm({ selectedDate, addTask }) {
       }
     >
       {selectedDate ? (
-        <h1 className={styles.todoTaskTitle + " " + (darkTheme ? styles.darkTodoTaskTitle : "")}>
+        <h1
+          className={
+            styles.todoTaskTitle +
+            " " +
+            (darkTheme ? styles.darkTodoTaskTitle : "")
+          }
+        >
           New task for{" "}
           {`${selectedDate.getDate()} ${
             months[selectedDate.getMonth()]
           } ${selectedDate.getFullYear()}`}
         </h1>
       ) : (
-        <h1 className={styles.todoTaskTitle + " " + (darkTheme ? styles.darkTodoTaskTitle : "")}>New task</h1>
+        <h1
+          className={
+            styles.todoTaskTitle +
+            " " +
+            (darkTheme ? styles.darkTodoTaskTitle : "")
+          }
+        >
+          New task
+        </h1>
       )}
 
-      <form className={styles.todoTaskForm + " " + (darkTheme ? styles.darkTodoTaskForm : "")} onSubmit={handleSubmit}>
+      <form
+        className={
+          styles.todoTaskForm + " " + (darkTheme ? styles.darkTodoTaskForm : "")
+        }
+        onSubmit={handleSubmit}
+      >
         <label
           className={
             styles.todoTaskLabel +
             " " +
-            (darkTheme ? styles.darkTaskContainer : "")
+            (darkTheme ? styles.darkTodoTaskLabel : "")
           }
         >
           <input

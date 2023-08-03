@@ -39,7 +39,6 @@ function TodoList({
         const result = [{ ...task, priority: e.target.value }, ...updated].sort(
           (a, b) => new Date(a.dueDate) - new Date(b.dueDate)
         );
-        console.log(result);
 
         setTodoList(result);
         localStorage.setItem("tasks", JSON.stringify(result));
@@ -111,12 +110,8 @@ function TodoList({
                   />
                   <div
                     className={`${
-                          darkTheme
-                            ? styles.darkNewHigh
-                            : styles.newHigh
-                        } ${
-                          task.priority === "High" ? styles.check : ""
-                        }`}
+                      darkTheme ? styles.darkNewHigh : styles.newHigh
+                    } ${task.priority === "High" ? styles.check : ""}`}
                   />
                 </div>
 

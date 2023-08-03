@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import TabElement from "./tab-element/tab-element";
 import style from "./tab.module.css";
+import { useSelector } from "react-redux";
 
 export default function Tab(props) {
   const darkTheme = JSON.parse(localStorage.getItem("dark-theme") || "true");
+
+  const currentTab = useSelector((state) => state.todoStore.currentTab);
 
   let count = "";
   for (let i = 0; i < props.titles.length; i++) {
@@ -19,15 +22,15 @@ export default function Tab(props) {
 
   return (
     <>
-      <div className={style.tab + " " + (darkTheme ? style.darkTab : "")} style={grid}>
-        {/* <TabElement active={props.currentTab === "To do"} value={"To do"} switch={props.setCurrentTab}/>
-        <TabElement active={props.currentTab === "Second"} value={"Second"} switch={props.setCurrentTab}/> */}
+      <div
+        className={style.tab + " " + (darkTheme ? style.darkTab : "")}
+        style={grid}
+      >
         {props.titles.map((el, key) => {
           return (
             <TabElement
-              active={props.currentTab === el}
+              active={currentTab === el}
               value={el}
-              switch={props.setCurrentTab}
               key={key}
               darkTheme={darkTheme}
             />

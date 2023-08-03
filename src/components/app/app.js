@@ -4,9 +4,9 @@ import Tab from "../tab/tab";
 import TodoPage from "../todo-page/todo-page";
 import CalendarPage from "../calendar/calendar-page";
 import ProgressPage from "../progress-page/progress-page";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
-  const [currentTab, setCurrentTab] = useState("To do");
   const [todoList, setTodoList] = useState(
     JSON.parse(localStorage.getItem("tasks") || "[]")
   );
@@ -21,14 +21,11 @@ function App() {
     setTodoList((prevTodoList) => [...prevTodoList, newTask]);
   };
 
+  const currentTab = useSelector((state) => state.todoStore.currentTab);
 
   return (
-    <main className={`${styles.back} ${darkMode ? styles.darkBack : ''}`}>
-      <Tab
-        titles={["To do", "Calendar", "Progress"]}
-        currentTab={currentTab}
-        setCurrentTab={setCurrentTab}
-      />
+    <main className={`${styles.back} ${darkMode ? styles.darkBack : ""}`}>
+      <Tab titles={["To do", "Calendar", "Progress"]} />
       {currentTab === "To do" && (
         <TodoPage
           todoList={todoList}
